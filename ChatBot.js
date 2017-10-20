@@ -1,5 +1,5 @@
 $(function () {
-
+    var notifications_enabled = false;
     // Declare a proxy to reference the hub.
     var chat = $.connection.chatHub;
 
@@ -228,10 +228,10 @@ $(function () {
     }
 
     function botReceivedMessage(name, message){
-        console.log(message);
-        var elements = $(message);
+        console.log(name);
+        var elements = $(name);
         console.log(elements);
-        var timeElement = $('.usrname-datetime', elements).innerHtml;
+        var timeElement = $('.usrname-datetime', elements).html();
         console.log(timeElement);
         if(typeof timeElement!== "undefined" && timeElement !== null && timeElement[0] !== null && typeof timeElement[0] !== "undefined"){
             console.log(timeElement);
